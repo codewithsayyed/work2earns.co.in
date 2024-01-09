@@ -1,509 +1,759 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work2Earns</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work2Earns</title>
 
-    <!-- Bootstrap Cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Bootstrap Cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="ads.css">    <!-- Mondiad Ads -->
-<script async src="https://ss.mndsrv.com/banner.js"></script>
-<style>
-        #redirectButton {
+  <link rel="stylesheet" href="ads.css"> <!-- Mondiad Ads -->
+  <script async src="https://ss.mndsrv.com/banner.js"></script>
+  <style>
+    #redirectButton {
       display: none;
     }
-  #countdownText {
+
+    #countdownText {
       animation: moveUpDown 1.5s infinite;
     }
 
     @keyframes moveUpDown {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-10px);
       }
     }
-</style>
+  </style>
 </head>
+
 <body>
-    <!-- <div class="ads-block d-flex justify-content-center" >
+  <!-- <div class="ads-block d-flex justify-content-center" >
      <img src="/assets/img/ads/970x250-in-situ-min-768x215.webp" alt="">
     </div> -->
 
-    <div class="h1 text-center m-5">
-      <span style="color: red;">START YOUR EARNING</span>
-    </div>
+  <div class="h1 text-center m-5">
+    <span style="color: red;">START YOUR EARNING</span>
+  </div>
 
-<div class="container">
-  <div class="h1">
+  <div class="container">
+    <div class="h1">
       Convert BTC to USD: Bitcoin to Any Currency
     </div>
-  <p>CoinDesk's Cryptocurrency Calculator determines the exchange rates between major fiat currencies and cryptocurrencies – including BTC, BCH, ETH and XRP to USD, EUR, GBP, IDR and NGN – with up to six decimal places of accuracy. Conversion rates are based on the price indices of digital assets. World currency prices are based on rates obtained via Open Exchange Rates.</p>
-</div>
-        
-    <div class="convertor d-flex justify-content-center my-5"> 
-        <div class="container1" py-4>
-    
-            <form action="">
-    
-                <input type="text" name="amount" id="amount" placeholder="Enter Amount" required>
-    
-                <label id="fromCurrencyName"></label>
-                <div id="select-field">
-    
-                    <select name="fromCurrency" id="fromCurrency" onchange="showFromCurrencyName()">
-                        <option value="USD" selected="">USD - US Dollar</option>
-                        <option value="EUR">EUR - Euro</option>
-                        <option value="GBP">GBP - British Pound</option>
-                        <option value="CAD">CAD - Canadian Dollar</option>
-                        <option value="AUD">AUD - Australian Dollar</option>
-                        <option value="JPY">JPY - Japanese Yen</option>
-                        <option value="INR">INR - India Rupee</option>
-                        <option value="NZD">NZD - New Zealand Dollar</option>
-                        <option value="CHF">CHF - Swiss Franc</option>
-                        <option value="ZAR">ZAR - South African Rand</option>
-                        <option value="BGN">BGN - Bulgarian Lev</option>
-                        <option value="SGD">SGD - Singapore Dollar</option>
-                        <option value="HKD">HKD - Hong Kong Dollar</option>
-                        <option value="SEK">SEK - Swedish Krona</option>
-                        <option value="THB">THB - Thai Baht</option>
-                        <option value="HUF">HUF - Hungarian Forint</option>
-                        <option value="CNY">CNY - Chinese Yuan Renminbi</option>
-                        <option value="NOK">NOK - Norwegian Krone</option>
-                        <option value="MXN">MXN - Mexican Peso</option>
-                        <option value="GHS">GHS - Ghanians Cedi</option>
-                        <option value="NGN">NGN - Nigerian Naira</option>
-                    </select>
-        
-                    
-                    <select name="toCurrency" id="toCurrency" onchange="showCurrencyName()">
-                        <option value="BTC">Bitcoin (BTC)</option>
-                        <option value="ETH">Ethereum (ETH)</option>
-                        <option value="USDT">Tether (USDT)</option>
-                        <option value="BNB">Binance Coin (BNB)</option>
-                        <option value="USDC">USD Coin (USDC)</option>
-                        <option value="XRP">XRP (XRP)</option>
-                        <option value="BUSD">Binance USD (BUSD)</option>
-                        <option value="ADA">cardano (ADA)</option>
-                        <option value="DOGE">Dogecoin (DOGE)</option>
-                        <option value="MATIC">Polygon (MATIC)</option>
-                        <option value="SOL">Solana (SOL)</option>
-                        <option value="DOT">Polkadot (DOT)</option>
-                        <option value="SHIB">Shiba Inu (SHIB)</option>
-                        <option value="LTC">Litecoin (LTC)</option>
-                        <option value="TRX">Tron (TRX)</option>
-                        <option value="AVAX">Avalanche (AVAX)</option>
-                    </select>
-    
-                </div>
-    
-                <br>
-    
-                <button type="button" id="convert" class="primary-btn">
-                    Convert
-                </button>
-    
-            </form>
-    
-            <p id="result"></p>
-        </div>
-      </div>
+    <p>CoinDesk's Cryptocurrency Calculator determines the exchange rates between major fiat currencies and
+      cryptocurrencies – including BTC, BCH, ETH and XRP to USD, EUR, GBP, IDR and NGN – with up to six decimal places
+      of accuracy. Conversion rates are based on the price indices of digital assets. World currency prices are based on
+      rates obtained via Open Exchange Rates.</p>
+  </div>
+
+  <div class="convertor d-flex justify-content-center my-5">
+    <div class="container1" py-4>
+
+      <form action="">
+
+        <input type="text" name="amount" id="amount" placeholder="Enter Amount" required>
+
+        <label id="fromCurrencyName"></label>
+        <div id="select-field">
+
+          <select name="fromCurrency" id="fromCurrency" onchange="showFromCurrencyName()">
+            <option value="USD" selected="">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="CAD">CAD - Canadian Dollar</option>
+            <option value="AUD">AUD - Australian Dollar</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="INR">INR - India Rupee</option>
+            <option value="NZD">NZD - New Zealand Dollar</option>
+            <option value="CHF">CHF - Swiss Franc</option>
+            <option value="ZAR">ZAR - South African Rand</option>
+            <option value="BGN">BGN - Bulgarian Lev</option>
+            <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="HKD">HKD - Hong Kong Dollar</option>
+            <option value="SEK">SEK - Swedish Krona</option>
+            <option value="THB">THB - Thai Baht</option>
+            <option value="HUF">HUF - Hungarian Forint</option>
+            <option value="CNY">CNY - Chinese Yuan Renminbi</option>
+            <option value="NOK">NOK - Norwegian Krone</option>
+            <option value="MXN">MXN - Mexican Peso</option>
+            <option value="GHS">GHS - Ghanians Cedi</option>
+            <option value="NGN">NGN - Nigerian Naira</option>
+          </select>
 
 
-
-      <div class="container">
-        <div class="h1">
-          Software wallets1
+          <select name="toCurrency" id="toCurrency" onchange="showCurrencyName()">
+            <option value="BTC">Bitcoin (BTC)</option>
+            <option value="ETH">Ethereum (ETH)</option>
+            <option value="USDT">Tether (USDT)</option>
+            <option value="BNB">Binance Coin (BNB)</option>
+            <option value="USDC">USD Coin (USDC)</option>
+            <option value="XRP">XRP (XRP)</option>
+            <option value="BUSD">Binance USD (BUSD)</option>
+            <option value="ADA">cardano (ADA)</option>
+            <option value="DOGE">Dogecoin (DOGE)</option>
+            <option value="MATIC">Polygon (MATIC)</option>
+            <option value="SOL">Solana (SOL)</option>
+            <option value="DOT">Polkadot (DOT)</option>
+            <option value="SHIB">Shiba Inu (SHIB)</option>
+            <option value="LTC">Litecoin (LTC)</option>
+            <option value="TRX">Tron (TRX)</option>
+            <option value="AVAX">Avalanche (AVAX)</option>
+          </select>
 
         </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
-      
-      <div class="container">
-        <div class="h1">
-          Software wallets1
+        <br>
 
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
+        <button type="button" id="convert" class="primary-btn">
+          Convert
+        </button>
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
-      
-      <div class="container">
-        <div class="h1">
-          Software wallets1
+      </form>
 
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
-      
-      <div class="container">
-        <div class="h1">
-          Software wallets1
-
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
+      <p id="result"></p>
+    </div>
+  </div>
 
 
 
-      <div class="container">
-        <div class="h1">
-          Software wallets1
+  <div class="container">
+    <div class="h1">
+      1. Porsche 911
 
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
-      
-      <div class="container">
-        <div class="h1">
-          Software wallets1
-
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
-      
-      <div class="container">
-        <div class="h1">
-          Software wallets1
-
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
-      
-      <div class="container">
-        <div class="h1">
-          Software wallets1
-
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<iframe data-aa='2292684' src='//ad.a-ads.com/2292684?size=728x90' style='width:728px; height:90px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-      </div>
+    </div>
+    <p>The Porsche 911 is an iconic sports car that has captivated enthusiasts since its debut in 1963. Known for its
+      distinctive design and rear-engine layout, the 911 has undergone numerous updates while maintaining its timeless
+      appeal. The car's sleek silhouette is instantly recognizable, featuring a sloping roofline and rear-mounted
+      flat-six engine. The rear-engine configuration contributes to the 911's superb handling and balance, making it a
+      joy to drive on both roads and tracks.Over the years, Porsche has introduced various 911 models, each offering
+      different performance levels. From the entry-level Carrera to the high-performance GT3 and Turbo variants
 
 
-   <!-- Mondiad-->
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      
-      
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+  <div class="container">
+    <div class="h1">
+      2. Chevrolet Corvette
+    </div>
+    <p>The Chevrolet Corvette is an iconic American sports car known for its striking design and powerful performance.
+      The latest models, like the C8 Corvette, boast a mid-engine layout, a departure from the traditional front-engine
+      design. This change enhances balance and agility on the road.Under the hood, you'll find a range of potent
+      engines, with the Z06 and ZR1 versions pushing the boundaries of performance. The Corvette's acceleration is
+      impressive, and it can go from 0 to 60 mph in a matter of seconds. Inside, the Corvette combines sportiness with
+      modern comfort. Premium materials, advanced infotainment systems
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+  <div class="container">
+    <div class="h1">
+      3. Ferrari 488 GTB
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+    </div>
+    <p>The Ferrari 488 GTB is a high-performance sports car that exudes elegance and speed. Introduced in 2015 as the
+      successor to the 458 Italia, it showcases Ferrari's commitment to cutting-edge technology and aerodynamic
+      design.Under the hood, the 488 GTB boasts a 3.9-liter twin-turbocharged V8 engine that delivers an exhilarating
+      660 horsepower and 560 lb-ft of torque. This potent powerplant is mated to a 7-speed dual-clutch automatic
+      transmission, enabling lightning-fast gear changes and seamless acceleration.In terms of performance, the 488 GTB
+      can accelerate from 0 to 60 mph in just 3 seconds, showcasing its remarkable agility.
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+  <div class="container">
+    <div class="h1">
+      4. Lamborghini Huracan
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
+    </div>
+    <p>The Lamborghini Huracan is a high-performance sports car that combines striking design with powerful engineering.
+      Launched in 2014 as a successor to the Gallardo, it quickly became a flagship model for Lamborghini. Design The
+      Huracan boasts an aggressive and aerodynamic design. Its sharp lines, hexagonal elements, and low-slung profile
+      give it an unmistakable Lamborghini identity. The iconic scissor doors add to its dramatic entrance.Engine and
+      Performance:Under the hood, the Huracan packs a potent V10 engine. The specific variant may vary, but it typically
+      produces well over 600 horsepower, providing exhilarating acceleration and a top speed that exceeds 200 mph. The
+      car's all-wheel-drive system ensures optimal traction and handling.
 
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-  
-
-      <div class="container">
-        <div class="h1">
-          Software wallets1
-
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
-      </div>
-
-
-   <!--Advertica -->
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      
-      
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-      <div class="container">
-        <div class="h1">
-          Decentralization A ads heree
-        </div>
-        <p>Conversely, researchers have pointed out a "trend towards centralization". Although bitcoin can be sent directly from user to user, in practice intermediaries are widely used.[25]: 220–222  Bitcoin miners join large mining pools to minimize the variance of their income.[25]: 215, 219–222 [53]: 3 [54] Because transactions on the network are confirmed by miners, decentralization of the network requires that no single miner or mining pool obtains 51% of the hashing power, which would allow them to double-spend coins, prevent certain transactions from being verified and prevent other miners from earning income.[55] As of 2013 just six mining pools controlled 75% of overall bitcoin hashing power.[55] In 2014 mining pool Ghash.io obtained 51% hashing power which raised significant controversies about the safety of the network. The pool has voluntarily capped its hashing power at 39.99% and requested other pools to act responsibly for the benefit of the whole network.[56] Around the year 2017, over 70% of the hashing power and 90% of transactions were operating from China.[57]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
-  
-
-      <div class="container">
-        <div class="h1">
-          Software wallets1
-
-        </div>
-        <p>The first wallet program, simply named Bitcoin, and sometimes referred to as the Satoshi client, was released in 2009 by Satoshi Nakamoto as open-source software.[10] In version 0.5 the client moved from the wxWidgets user interface toolkit to Qt, and the whole bundle was referred to as Bitcoin-Qt.[65] After the release of version 0.9, the software bundle was renamed Bitcoin Core to distinguish itself from the underlying network.[66][67] Bitcoin Core is, perhaps, the best known implementation or client. Forks of Bitcoin Core exist, such as Bitcoin XT, Bitcoin Unlimited,[68] and Parity Bitcoin.[69]
-
-        </p>
-      </div>
-      <div class="ads-block d-flex justify-content-center" >
-<ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default"><script src="//r-q-e.com/js/responsive.js" async></script></ins>
-      </div>
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
 
 
 
-<div class="container m-5">
+  <div class="container">
+    <div class="h1">
+      5.McLaren 720S
+
+    </div>
+    <p>The McLaren 720S is a high-performance sports car that combines stunning design with exceptional aerodynamics and
+      powerful engineering. Its sleek and futuristic exterior houses a 4.0-liter twin-turbocharged V8 engine, capable of
+      producing an impressive 710 horsepower. The seven-speed dual-clutch automatic transmission ensures swift and
+      precise gear changes, contributing to its remarkable acceleration.Constructed with a lightweight carbon fiber
+      monocoque chassis, the 720S boasts a superb power-to-weight ratio, enhancing its agility and overall performance.
+      The innovative suspension system, known as Proactive Chassis Control II, adapts to driving conditions in
+      real-time,providing optimal handling and ride comfort.The 720S features distinctive dihedral doors that not only
+      add a touch of drama but also improve aerodynamics.
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+
+  <div class="container">
+    <div class="h1">
+      6.Audi R8
+
+    </div>
+    <p>
+      The Audi R8 is a high-performance sports car that seamlessly combines thrilling performance with sophisticated
+      design. It first debuted in 2006 and quickly gained acclaim for its exceptional driving dynamics and futuristic
+      aesthetics.Under the hood, the R8 typically boasts a mid-engine layout, with powerplants ranging from potent V8s
+      to more recent V10s. The V10 engines, in particular, deliver exhilarating acceleration and an exhaust note that's
+      music to the ears of enthusiasts.Its quattro all-wheel-drive system ensures impressive traction, making the R8 a
+      confident performer in various driving conditions. The car's lightweight construction, often utilizing aluminum
+      and carbon fiber, contributes to its agile handling and responsiveness on the road or track.
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+
+  <div class="container">
+    <div class="h1">
+      7. Ford GT
+
+    </div>
+    <p>The Ford GT is a high-performance sports car that pays homage to the iconic GT40, which secured four consecutive
+      Le Mans victories in the 1960s. Introduced in 2017, the modern GT is a mid-engine, two-seater marvel.Under the
+      hood, you'll find a 3.5-liter twin-turbocharged V6 engine that produces over 600 horsepower, coupled with a
+      seven-speed dual-clutch automatic transmission. The lightweight carbon fiber and aluminum construction enhances
+      its agility.The aerodynamics of the GT are a work of art, featuring an active rear wing and adjustable flaps to
+      optimize downforce and minimize drag. The distinctive dihedral doors not only contribute to the car's striking
+      appearance but also improve aerodynamic efficiency.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+
+  <div class="container">
+    <div class="h1">
+      8. Aston Martin Vantage
+
+    </div>
+    <p>The Aston Martin Vantage is a striking sports car known for its elegant design and powerful performance. Under
+      the hood, it typically boasts a robust engine, often a V8, delivering an exhilarating driving experience. The
+      car's aerodynamic design enhances both its aesthetics and performance, ensuring a smooth and dynamic ride.Inside,
+      the Vantage offers a luxurious and comfortable cockpit, featuring high-quality materials and advanced technology.
+      The attention to detail in the interior design reflects Aston Martin's commitment to creating a premium driving
+      environment.With a focus on handling precision, the Vantage incorporates cutting-edge suspension and chassis
+      technologies.
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+
+
+  <!-- Mondiad-->
+  <div class="container">
+    <div class="h1">
+      9.Nissan GT-R
+    </div>
+    <p>The Nissan GT-R, often referred to as the "Godzilla," is a high-performance sports car known for its exceptional
+      speed and handling. Launched in 2007, it has undergone several updates, remaining an icon in the automotive
+      world.Under the hood, the GT-R boasts a powerful twin-turbocharged V6 engine, delivering impressive horsepower and
+      torque. Its advanced all-wheel-drive system and a sophisticated suspension contribute to exceptional traction and
+      stability, making it a formidable presence on the road.The GT-R's exterior design is characterized by sharp lines
+      and an aerodynamic profile, emphasizing both style and functionality. Inside, the cockpit features a
+      driver-centric layout with luxurious touches, blending comfort and a racing-inspired ambiance.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="h1">
+      10. BMW M8
+    </div>
+    <p>The BMW M8 is a high-performance sports car that sits at the pinnacle of BMW's lineup. It combines luxury and
+      performance seamlessly. The M8 is available in various body styles, including coupe, convertible, and Gran
+      Coupe.Under the hood, you'll find a powerful engine, often a 4.4-liter V8 with M TwinPower Turbo technology. The
+      M8 delivers impressive horsepower and torque figures, ensuring exhilarating acceleration. It typically comes with
+      BMW's xDrive all-wheel-drive system for optimal traction.The M8 boasts a sophisticated chassis and suspension
+      system, providing a perfect balance between comfort and dynamic driving performance.
+
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+  <div class="container">
+    <div class="h1">
+      11. Jaguar F-Type
+    </div>
+    <p>The Jaguar F-Type is a captivating sports car that seamlessly combines performance and luxury. With its sleek and
+      aerodynamic design, the F-Type exudes a sense of elegance and aggression. The car is available in coupe and
+      convertible variants, catering to different preferences.Under the hood, the F-Type offers a range of powerful
+      engines, including turbocharged four-cylinders and robust V6 and V8 options. The performance is exhilarating,
+      delivering swift acceleration and dynamic handling. It's not just about speed; the F-Type ensures a thrilling
+      driving experience with precise steering and responsive brakes.Inside, the F-Type's cabin is a blend of
+      sophistication and sportiness. High-quality materials, comfortable seats, and advanced technology contribute to a
+      luxurious interior.
+
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+  <div class="container">
+    <div class="h1">
+      12. Mercedes-AMG GT
+    </div>
+    <p>The Mercedes-AMG GT is a high-performance sports car that combines stunning design with powerful performance.
+      With its long hood, wide stance, and distinctive Panamericana grille, the GT boasts a sleek and aggressive
+      aesthetic.Under the hood, you'll find a range of potent engines, including V8 powerhouses in various
+      configurations. The AMG GT is known for its impressive acceleration, precise handling, and a delightful exhaust
+      note that resonates with driving enthusiasts.Inside, the cockpit is a blend of luxury and sportiness.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+  <div class="container">
+    <div class="h1">
+      13. Lexus LC
+    </div>
+    <p>The Lexus LC is a luxury sports coupe that combines striking design with high performance. Introduced in 2017,
+      it's renowned for its attention to detail and advanced technology. The LC features a sleek, aerodynamic exterior
+      with a distinctive spindle grille and sharp LED headlights.Under the hood, you'll find powerful engine options,
+      typically a V8, delivering a thrilling driving experience. The interior is crafted with premium materials,
+      offering a blend of comfort and sophistication. The cabin boasts a driver-focused layout, advanced infotainment
+      systems, and luxurious seating.In terms of performance, the LC offers a dynamic driving experience with precise
+      handling and responsive steering.
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+  <div class="container">
+    <div class="h1">
+      14. Tesla Roadster
+    </div>
+    <p>Performance: The Roadster boasts incredible acceleration, going from 0 to 60 mph in just 1.9 seconds, making it
+      one of the fastest production cars. It has a top speed exceeding 250 mph.Range: With a claimed range of over 600
+      miles on a single charge, the Roadster sets a new standard for electric vehicle range. This is achieved through
+      advanced battery technology developed by Tesla.Design: True to Tesla's style, the Roadster features a sleek and
+      aerodynamic design. Its low-slung profile and smooth curves contribute to both aesthetics and
+      performance.Convertible: The Roadster comes with a removable glass roof, providing a convertible driving
+      experience.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+  <div class="container">
+    <div class="h1">
+      15. Acura NSX
+    </div>
+    <p>The Acura NSX, a hybrid supercar, has gained acclaim for its dynamic performance and innovative design. Its
+      mid-engine layout combines a twin-turbocharged V6 engine with three electric motors, delivering a combined output
+      that propels the NSX to impressive speeds.The lightweight yet rigid chassis of the NSX contributes to its superb
+      handling, enhanced by the Sport Hybrid Super Handling All-Wheel Drive (SH-AWD)system. This system intelligently
+      distributes power to individual wheels, optimizing traction and cornering abilities.Inside, the NSX features a
+      driver-centric cockpit with premium materials and advanced technology. The dual-screen infotainment system,
+      customizable driving modes, and supportive seats underscore the fusion of luxury and performance.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+  <div class="container">
+    <div class="h1">
+      16.Yamaha YZF-R1
+    </div>
+    <p>The Yamaha YZF-R1 is a high-performance sportbike known for its cutting-edge technology and aggressive design.
+      Its 998cc inline-four engine delivers impressive power, making it a formidable presence on the track. With a
+      lightweight and aerodynamic chassis, the R1 offers precise handling and stability at high speeds.
+      Equipped with advanced electronics, including traction control and quick-shifter, the R1 provides a seamless
+      riding experience. The bike features a sharp and modern design, often turning heads with its distinctive look and
+      dual LED headlights. Yamaha's commitment to innovation is evident in the YZF-R1, which has seen continuous updates
+      to stay at the forefront of sportbike technology
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+  <div class="container">
+    <div class="h1">
+      17.Ducati Panigale V4
+    </div>
+    <p>The Ducati Panigale V4 is a high-performance sportbike known for its striking design and cutting-edge technology.
+      Powered by a potent 1,103cc V4 engine, it delivers a breathtaking 214 horsepower. Its aerodynamic profile enhances
+      stability at high speeds, making it a beast on the track. The bike features top-notch electronics, including
+      multiple riding modes, traction control, and quick-shifter. The Panigale V4's chassis is designed for optimal
+      handling and precision in cornering. Its advanced suspension system ensures a smooth ride while navigating
+      challenging terrains. The bike's exhaust system not only contributes to its performance but also adds to the
+      distinctive Ducati roar. With a focus on both form and function, the Ducati Panigale V4 stands as a testament to
+      Italian craftsmanship and engineering excellence.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="h1">
+      18.Kawasaki Ninja ZX-10R
+
+    </div>
+    <p>The Kawasaki Ninja ZX-10R is a high-performance sportbike known for its aggressive design and cutting-edge
+      technology. Powered by a 998cc inline-four engine, it delivers a thrilling 200 horsepower. Its aerodynamic
+      bodywork not only enhances its visual appeal but also improves stability at high speeds. Equipped with advanced
+      electronics, the ZX-10R features multiple riding modes, traction control, and quick-shifter for seamless gear
+      changes.The bike's aluminum twin-spar frame provides excellent rigidity, contributing to precise handling on both
+      the street and the track. The Showa Balance Free Fork and rear shock offer superb suspension performance, ensuring
+      a smooth and controlled ride. With Brembo brakes providing exceptional stopping power, the Ninja ZX-10R is geared
+      towards delivering an exhilarating and confidence-inspiring riding experience. Whether carving through corners or
+      dominating straightaways, this Kawasaki model embodies the spirit of high-performance sportbikes.
+
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <div data-mndbanid="0a7cb59d-5bce-471b-bf2b-51da782a9de1"></div>
+  </div>
+
+
+  <!--Advertica -->
+  <div class="container">
+    <div class="h1">
+      19. Honda CBR1000RR-R
+    </div>
+    <p>The Honda CBR1000RR-R Fireblade is a high-performance sportbike known for its cutting-edge technology and
+      aerodynamic design. Its 999cc inline-four engine delivers impressive power, making it a top choice for
+      enthusiasts. The bike features advanced electronics, including multiple riding modes, traction control, and
+      quick-shifter. Its lightweight frame and premium suspension contribute to exceptional handling and agility on the
+      road or track. The aerodynamics are optimized for speed and stability, enhancing its racing capabilities. With
+      Brembo brakes and sophisticated ABS, the Fireblade ensures reliable stopping power. The TFT display provides
+      riders with crucial information at a glance. Overall, the Honda CBR1000RR-R Fireblade embodies the brand's
+      commitment to pushing the boundaries of sportbike performance.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+
+  <div class="container">
+    <div class="h1">
+      20.BMW S1000RR
+    </div>
+    <p>The BMW S1000RR is a high-performance sportbike that epitomizes precision and speed. Its heart is a potent 999cc
+      inline-four engine, delivering exhilarating power. The bike's distinctive asymmetrical headlights give it a unique
+      and aggressive appearance on the road. With advanced electronics, it offers rider aids like quick-shifter,
+      traction control, and multiple riding modes.
+
+      The chassis is designed for optimal agility and stability, ensuring a thrilling and controlled ride. BMW's
+      commitment to innovation is evident in features like the ShiftCam technology, optimizing power delivery across
+      different RPM ranges. The S1000RR boasts a lightweight frame and top-notch suspension, enhancing both cornering
+      prowess and straight-line speed.
+
+      Its aerodynamic design minimizes drag, contributing to its impressive top speed. With a focus on performance and
+      rider experience, the BMW S1000RR continues to be a benchmark in the world of sport motorcycles
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+  <div class="container">
+    <div class="h1">
+      21.Suzuki GSX-R1000
+    </div>
+    <p>The Suzuki GSX-R1000 is a renowned sportbike known for its powerful performance. Its 999.8cc inline-four engine
+      delivers exhilarating acceleration. With advanced electronics, it offers riders various modes and features for a
+      customizable riding experience. The twin-spar aluminum frame ensures a responsive and agile ride.Equipped with
+      top-notch suspension and braking systems, the GSX-R1000 provides exceptional handling and control. Its aerodynamic
+      design not only enhances its appearance but also contributes to its high-speed stability. The bike's advanced
+      technology includes quick-shift systems, traction control, and a ride-by-wire throttle.Riders appreciate the
+      comfortable riding position, making it suitable for both street and track use. The GSX-R1000 has a rich racing
+      heritage, with numerous victories in championships worldwide. It continues to be a favorite among motorcycle
+      enthusiasts for its blend of performance, technology, and iconic design.
+
+
+
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+  <div class="container">
+    <div class="h1">
+      22.Aprilia RSV4
+    </div>
+    <p>The Aprilia RSV4 is a high-performance sportbike renowned for its racing pedigree. Powered by a potent 1,077cc V4
+      engine, it delivers exhilarating power and precise handling. Its advanced electronics, including APRC (Aprilia
+      Performance Ride Control), enhance rider control and safety. The RSV4 boasts a distinctive design with twin-spar
+      aluminum frame, sharp lines, and aerodynamic features.Equipped with top-tier components like Brembo brakes and
+      Ohlins suspension, it ensures a dynamic riding experience. The bike's quick-shifting capabilities contribute to
+      seamless gear changes during spirited rides. Aprilia's commitment to racing excellence is evident in the RSV4's
+      success in various championships. With a blend of cutting-edge technology and Italian craftsmanship, the Aprilia
+      RSV4 stands as a symbol of performance and style in the sportbike world.
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+  <div class="container">
+    <div class="h1">
+      23.KTM RC8
+    </div>
+    <p>The KTM RC8 is a sport motorcycle known for its aggressive styling and performance. With a powerful 1190cc V-twin
+      engine, it delivers an exhilarating riding experience. The distinctive design includes sharp lines and a unique
+      twin-headlight setup. Its adjustable suspension and high-quality components contribute to precise handling on the
+      road or track.Equipped with advanced electronics, the RC8 features multiple riding modes, traction control, and a
+      quick-shifter for seamless gear changes. The bike's lightweight chassis enhances agility, making it well-suited
+      for dynamic riding. Riders appreciate the RC8's responsive throttle and impressive braking capabilities.While the
+      RC8 may not be in production anymore, it remains a sought-after model among motorcycle enthusiasts for its
+      combination of striking aesthetics and thrilling performance.
+
+
+
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center"><ins style="width: 728px;height:90px" data-width="728"
+      data-height="90" class="n5a608a0f54" data-domain="//r-q-e.com"
+      data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+  <div class="container">
+    <div class="h1">
+      24. MV Agusta F4
+    </div>
+    <p>The MV Agusta F4 is a stunning Italian masterpiece, renowned for its exquisite design and high-performance
+      capabilities. With a powerful inline-four engine, it delivers an exhilarating 195 horsepower, ensuring an
+      adrenaline-packed riding experience. Its distinctive quad exhaust pipes not only enhance performance but also
+      contribute to its iconic aesthetic.Crafted with precision and attention to detail, the F4 features advanced
+      electronics, including traction control and multiple riding modes, providing riders with a customizable
+      experience. The chassis is built for agility and stability, making it a joy to handle on both straight roads and
+      tight corners. The bike's aerodynamic design further emphasizes its racing DNA, ensuring optimal performance and
+      control.Known for limited production runs, each MV Agusta F4 is a rare gem, attracting enthusiasts and collectors
+      alike. The combination of cutting-edge technology, artistic design, and raw power positions the MV Agusta F4 among
+      the elite sports bikes, leaving an indelible mark on the world of high-performance motorcycles.
+
+
+
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+  <div class="container">
+    <div class="h1">
+      25.Triumph Daytona 765
+    </div>
+    <p>The Triumph Daytona 765 is a high-performance sportbike renowned for its agility and power. Its heart beats with
+      a 765cc inline-three engine, delivering a perfect balance of torque and horsepower. The bike's chassis is built
+      for precision, ensuring exceptional handling on both straightaways and corners. With a sleek and aerodynamic
+      design, the Daytona 765 not only looks striking but also minimizes drag for enhanced speed. Cutting-edge
+      technology, including advanced electronics and a quick-shifter, elevates the riding experience. Riders appreciate
+      the adjustable suspension, allowing customization for individual preferences. Triumph's commitment to
+      craftsmanship is evident in the Daytona 765's attention to detail and premium components. Whether on the track or
+      the open road, this bike offers an exhilarating and dynamic ride.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+  <div class="container">
+    <div class="h1">
+      26.Ducati 1299 Panigale
+    </div>
+    <p>The Ducati 1299 Panigale is a high-performance sportbike renowned for its captivating design and potent engine.
+      Powered by a 1285cc Superquadro L-twin engine, it produces an exhilarating blend of power and precision. The
+      bike's chassis is a masterpiece, featuring a monocoque aluminum structure that enhances its agility and stability.
+      With advanced electronics like Ducati Quick Shift and multiple riding modes, it offers a customizable riding
+      experience. The Panigale's aerodynamics are optimized for maximum efficiency, ensuring optimal performance on the
+      track. Brembo brakes and Öhlins suspension further contribute to its exceptional handling capabilities. Its
+      distinctive LED headlights and aggressive styling make it a visual standout in the superbike category. The 1299
+      Panigale is not just a motorcycle; it's a symbol of Ducati's commitment to pushing the boundaries of performance
+      and design.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+  <div class="container">
+    <div class="h1">
+      27. Yamaha YZF-R6
+    </div>
+    <p>The Yamaha YZF-R6 is a sleek and powerful supersport motorcycle. With a 599cc, four-cylinder engine, it delivers
+      exhilarating performance. Its aggressive design, sharp lines, and twin LED headlights contribute to its dynamic
+      appearance. Equipped with advanced electronics, it features a quick-shifter and multiple riding modes for a
+      customized experience.The aluminum frame ensures a lightweight yet sturdy build, enhancing its agility on the
+      road. The R6's fully adjustable suspension system allows riders to fine-tune their ride for optimal comfort and
+      handling. Its aerodynamic fairing not only adds to its aesthetics but also improves its aerodynamic efficiency.
+      Known for its track-focused capabilities, the R6 has been a favorite among sportbike enthusiasts for its precise
+      handling and responsive throttle.Whether carving through corners on the track or navigating city streets, the
+      Yamaha YZF-R6 delivers a thrilling and dynamic riding experience.
+
+
+
+
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+
+
+  <div class="container">
+    <div class="h1">
+      28.Suzuki GSX-R750
+
+    </div>
+    <p>The Suzuki GSX-R750 is a legendary sportbike that has stood the test of time. Introduced in 1985, it quickly
+      gained fame for its combination of power and agility. With a 750cc inline-four engine, it strikes a balance
+      between the 600cc and 1000cc classes. The GSX-R750's lightweight frame and advanced suspension contribute to its
+      nimble handling, making it a favorite on both the street and the track. Over the years, Suzuki has continually
+      refined the GSX-R750, incorporating cutting-edge technology and design. It's known for its sleek and aerodynamic
+      appearance, showcasing the brand's commitment to performance. As a middleweight contender, the GSX-R750 remains an
+      iconic choice for riders seeking a thrilling and versatile riding experience.
+
+    </p>
+  </div>
+  <div class="ads-block d-flex justify-content-center">
+    <ins style="width: 728px;height:90px" data-width="728" data-height="90" class="n5a608a0f54"
+      data-domain="//r-q-e.com" data-affquery="/214affb339fc2d1d9509/5a608a0f54/?placementName=default">
+      <script src="//r-q-e.com/js/responsive.js" async></script>
+    </ins>
+  </div>
+
+
+  <div class="container m-5">
     <p id="countdownText" class="fs-2 fw-bold text-center">Countdown: <span id="countdownValue">10</span> seconds</p>
     <p class="fs-2 fw-bold text-center">The Button will show after the 10 seconds</p>
-  <a href="/ads3" style="text-decoration: none;">
-    <button id="redirectButton" onclick="delayedRedirect()" type="button" id="nxtpg" class="primary-btn" >
-    Continue Next PAGE (3)
-    </button>
-  </a>
+    <a href="https://work2earns.com/ads11" style="text-decoration: none;">
+      <button id="redirectButton" onclick="delayedRedirect()" type="button" id="nxtpg" class="primary-btn">
+        Continue Next PAGE (11)
+      </button>
+    </a>
 
   </div>
-  
-<script>
-function delayedRedirect() {
-  // Disable the button to prevent multiple clicks during the delay
-  document.getElementById("redirectButton").disabled = true;
 
-  let countdownValue = 10;
-  // Update the countdown text every second
-  const countdownInterval = setInterval(function() {
-    document.getElementById("countdownValue").textContent = countdownValue;
+  <script>
+    function delayedRedirect() {
+      // Disable the button to prevent multiple clicks during the delay
+      document.getElementById("redirectButton").disabled = true;
 
-    if (countdownValue <= 0) {
-      // Enable the button after the delay
-      document.getElementById("redirectButton").disabled = false;
-      clearInterval(countdownInterval);
+      let countdownValue = 10;
+      // Update the countdown text every second
+      const countdownInterval = setInterval(function () {
+        document.getElementById("countdownValue").textContent = countdownValue;
 
-      // Redirect to a specific URL (replace with your desired URL)
-      window.location.href = "https://example.com";
+        if (countdownValue <= 0) {
+          // Enable the button after the delay
+          document.getElementById("redirectButton").disabled = false;
+          clearInterval(countdownInterval);
+
+          // Redirect to a specific URL (replace with your desired URL)
+          window.location.href = "https://example.com";
+        }
+
+        countdownValue--;
+      }, 1000); // 1 second
     }
 
-    countdownValue--;
-  }, 1000); // 1 second
-}
-
-// Show the button after the delay
-setTimeout(function() {
-  document.getElementById("redirectButton").style.display = "block";
-  // Display the countdown text initially
-  document.getElementById("countdownText").style.display = "block";
-}, 10000); // 10 seconds
-</script>
+    // Show the button after the delay
+    setTimeout(function () {
+      document.getElementById("redirectButton").style.display = "block";
+      // Display the countdown text initially
+      document.getElementById("countdownText").style.display = "block";
+    }, 10000); // 10 seconds
+  </script>
 
 
-<!-- Bitcoin Js -->
-<script src="bitconvertor.js"></script>
-<!-- Bootstrap Cdn -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- Bitcoin Js -->
+  <script src="./assets/js/bitconvertor.js"></script>
+  <!-- Bootstrap Cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
